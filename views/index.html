@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.title}}</title>
+<!--    HTMx-->
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+<!--    PicoCSS-->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+<!--    Styling-->
+    <style>
+        h1 {
+            text-align: center;
+            padding-top: 30px;
+        }
+        h2 {
+            font-size: 25px;
+            padding-top: 30px;
+        }
+        #content-main {
+            padding-left: 10em;
+            padding-right: 10em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid" id="content-main">
+    <h1>{{.title}}</h1>
+    <h2>Realtime Energy Generation</h2>
+    <canvas id="myChart"></canvas>
+
+</div>
+
+<!--Chart.js-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div id="chart-script-placeholder">
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['-10s','-9s', '-8s', '-7s', '-6s', '5s', '-4s', '-3s', '-2s', '-1s', '0'],
+                datasets: [{
+                    label: 'Instant current (mA)',
+                    data: [12, 19, 3, 5, 2, 3, 5, 17, 18, 16, 15],
+                    borderWidth: 1,
+                    color: '#FFC130',
+                    borderColor: '#FFC130',
+                    tension: 0.2,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</div>
+</body>
+</html>
