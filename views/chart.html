@@ -4,11 +4,14 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['-10s','-9s', '-8s', '-7s', '-6s', '5s', '-4s', '-3s', '-2s', '-1s', '0'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                label: 'Instant current (mA)',
+                data: {{ .Data }},
+                borderWidth: 1,
+                color: '#FFC130',
+                borderColor: '#FFC130',
+                tension: 0.2,
             }]
         },
         options: {
